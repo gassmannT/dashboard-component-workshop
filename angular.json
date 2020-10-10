@@ -1,0 +1,374 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "monitoring-dashboard": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/monitoring-dashboard",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "monitoring-dashboard:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "monitoring-dashboard:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "monitoring-dashboard:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "tsconfig.app.json",
+              "tsconfig.spec.json",
+              "e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "monitoring-dashboard:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "monitoring-dashboard:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "customer-chart-tile": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/customer-chart-tile",
+      "sourceRoot": "projects/customer-chart-tile/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          // "builder": "@angular-devkit/build-angular:browser",
+          "builder": "ngx-build-plus:build",
+          "options": {
+            "outputPath": "dist/customer-chart-tile",
+            "index": "projects/customer-chart-tile/src/index.html",
+            "main": "projects/customer-chart-tile/src/main.ts",
+            "polyfills": "projects/customer-chart-tile/src/polyfills.ts",
+            "tsConfig": "projects/customer-chart-tile/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/customer-chart-tile/src/favicon.ico",
+              "projects/customer-chart-tile/src/assets"
+            ],
+            "styles": [
+              "projects/customer-chart-tile/src/styles.scss"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/customer-chart-tile/src/environments/environment.ts",
+                  "with": "projects/customer-chart-tile/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "customer-chart-tile:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "customer-chart-tile:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "customer-chart-tile:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/customer-chart-tile/src/test.ts",
+            "polyfills": "projects/customer-chart-tile/src/polyfills.ts",
+            "tsConfig": "projects/customer-chart-tile/tsconfig.spec.json",
+            "karmaConfig": "projects/customer-chart-tile/karma.conf.js",
+            "assets": [
+              "projects/customer-chart-tile/src/favicon.ico",
+              "projects/customer-chart-tile/src/assets"
+            ],
+            "styles": [
+              "projects/customer-chart-tile/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/customer-chart-tile/tsconfig.app.json",
+              "projects/customer-chart-tile/tsconfig.spec.json",
+              "projects/customer-chart-tile/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/customer-chart-tile/e2e/protractor.conf.js",
+            "devServerTarget": "customer-chart-tile:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "customer-chart-tile:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "weather-tile": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/weather-tile",
+      "sourceRoot": "projects/weather-tile/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          // "builder": "@angular-devkit/build-angular:browser",
+          "builder": "ngx-build-plus:build",
+          "options": {
+            "outputPath": "dist/weather-tile",
+            "index": "projects/weather-tile/src/index.html",
+            "main": "projects/weather-tile/src/main.ts",
+            "polyfills": "projects/weather-tile/src/polyfills.ts",
+            "tsConfig": "projects/weather-tile/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/weather-tile/src/favicon.ico",
+              "projects/weather-tile/src/assets"
+            ],
+            "styles": [
+              "projects/weather-tile/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/weather-tile/src/environments/environment.ts",
+                  "with": "projects/weather-tile/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "weather-tile:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "weather-tile:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "weather-tile:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/weather-tile/src/test.ts",
+            "polyfills": "projects/weather-tile/src/polyfills.ts",
+            "tsConfig": "projects/weather-tile/tsconfig.spec.json",
+            "karmaConfig": "projects/weather-tile/karma.conf.js",
+            "assets": [
+              "projects/weather-tile/src/favicon.ico",
+              "projects/weather-tile/src/assets"
+            ],
+            "styles": [
+              "projects/weather-tile/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/weather-tile/tsconfig.app.json",
+              "projects/weather-tile/tsconfig.spec.json",
+              "projects/weather-tile/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/weather-tile/e2e/protractor.conf.js",
+            "devServerTarget": "weather-tile:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "weather-tile:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "monitoring-dashboard"
+}

@@ -1,0 +1,15 @@
+<div
+  class="content"
+  fxLayout="row wrap"
+  fxLayoutGap="16px grid"
+  *ngIf="dashboardConfig$ | async as dashboardConfig"
+>
+  <div
+    fxFlex="25%"
+    fxFlex.xs="100%"
+    fxFlex.sm="33%"
+    *ngFor="let tile of dashboardConfig.tiles"
+  >
+    <app-dynamic-loader [tile]="tile"></app-dynamic-loader>
+  </div>
+</div>
