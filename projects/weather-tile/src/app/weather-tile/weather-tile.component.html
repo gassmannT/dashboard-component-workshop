@@ -4,7 +4,7 @@
   </mat-card-header>
   <mat-card-content>
     {{ location }}<br />
-    <div *ngIf="foo$ | async as weatherForecast">
+    <div *ngIf="weatherForecast$ | async as weatherForecast">
       {{ weatherForecast.weather }}: {{ weatherForecast.degree }} degree
     </div>
   </mat-card-content>
