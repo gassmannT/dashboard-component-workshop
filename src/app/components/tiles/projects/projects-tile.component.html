@@ -1,0 +1,32 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Projects</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <!-- ngModel simple way <input type="search" #searchInput [(ngModel)]="listFilter"> -->
+    <!-- ngModel the long form <input type="search" #searchInput [ngModel]="listFilter" (ngModelChange)="onFilterChange($event)"> -->
+    <!-- valueChanges Observable way  -->
+    <!-- <input type="search" #searchInput [(ngModel)]="listFilter" /> -->
+    <app-filter-criteria
+    #filterCriteria
+      [hitCount]="filteredProjects?.length"
+      (valueChange)="onFilterChange($event)"
+    ></app-filter-criteria>
+    <table class="mat-table cdk-table">
+      <thead>
+        <tr>
+          <th class="mat-header-cell cdk-header-cell">Name</th>
+          <th class="mat-header-cell cdk-header-cell">Customer</th>
+          <th class="mat-header-cell cdk-header-cell">Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let project of filteredProjects">
+          <td>{{ project.name }}</td>
+          <td>{{ project.customer }}</td>
+          <td>{{ project.duration }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-card-content>
+</mat-card>

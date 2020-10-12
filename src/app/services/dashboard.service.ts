@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { ProjectsTileComponent } from '../components/tiles/projects/projects-tile.component';
 import { SalesRevenueByRegionChartTileComponent } from '../components/tiles/sales-revenue-by-region-chart/sales-revenue-by-region-chart-tile.component';
 import { SalesRevenueChartTileComponent } from './../components/tiles/sales-revenue-chart/sales-revenue-chart-tile.component';
 import { DashboardConfig } from './../models/dashboard-config.model';
@@ -25,7 +26,12 @@ export class DashboardService {
           },
           {
             name: 'Weather (CE)',
-            component: 'weather-tile'
+            component: 'weather-tile',
+            params: { location: 'Zürich' }
+          },
+          {
+            name: 'Current Projects',
+            component: ProjectsTileComponent
           }
         ]
       });

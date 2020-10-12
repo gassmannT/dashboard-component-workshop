@@ -1,0 +1,8 @@
+<div style="margin-bottom: 8px;">
+  <input type="search" #searchInput [(ngModel)]="listFilter" />
+</div>
+<div style="margin-bottom: 8px;" *ngIf="listFilter">
+  <span>Filtered by: {{ listFilter }}</span
+  ><br />
+  <span>{{ hitCountMessage }}</span>
+</div>

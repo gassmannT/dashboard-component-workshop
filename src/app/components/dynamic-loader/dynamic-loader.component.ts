@@ -31,13 +31,22 @@ export class DynamicLoaderComponent
 
   loadComponent(): void {
     if (typeof this.tile.component === 'string') {
+      // load Angular Elements
+
       const script = document.createElement('script');
       script.src = `assets/${this.tile.component}.bundle.js`;
       document.body.appendChild(script);
 
       const tile = document.createElement(this.tile.component);
       this.container.element.nativeElement.parentElement.appendChild(tile);
+      // tslint:disable-next-line:forin
+      for (const key in this.tile.params) {
+        tile[key] = this.tile.params[key];
+      }
+
+      //
     } else {
+      // load Component
       this.container.clear();
       const factory = this.componentFactoryResolver.resolveComponentFactory(
         this.tile.component as Type<any>
@@ -46,6 +55,7 @@ export class DynamicLoaderComponent
       setTimeout(() => {
         this.componentRef = this.container.createComponent(factory);
       });
+      //
     }
   }
 }

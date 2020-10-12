@@ -1,5 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -12,10 +13,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DynamicLoaderComponent } from './components/dynamic-loader/dynamic-loader.component';
+import { FilterCriteriaComponent } from './components/filter-criteria/filter-criteria.component';
 import { HomeComponent } from './components/home/home.component';
+import { ProjectsTileComponent } from './components/tiles/projects/projects-tile.component';
 import { SalesRevenueByRegionChartTileComponent } from './components/tiles/sales-revenue-by-region-chart/sales-revenue-by-region-chart-tile.component';
 import { SalesRevenueChartTileComponent } from './components/tiles/sales-revenue-chart/sales-revenue-chart-tile.component';
-
 
 @NgModule({
   declarations: [
@@ -24,10 +26,14 @@ import { SalesRevenueChartTileComponent } from './components/tiles/sales-revenue
     DashboardComponent,
     SalesRevenueChartTileComponent,
     DynamicLoaderComponent,
-    SalesRevenueByRegionChartTileComponent
+    SalesRevenueByRegionChartTileComponent,
+    ProjectsTileComponent,
+    FilterCriteriaComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     NgxChartsModule,
     BrowserAnimationsModule,

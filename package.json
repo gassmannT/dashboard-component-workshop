@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "build:ce": "npm run build:ce:customerTile && npm run build:ce:weatherTile",
+    "build:ce:start": "npm run build:ce && ng s -o",
     "start:ce:customerTile": "ng s --project customer-chart-tile -o",
     "build:ce:customerTile": "npm run bundle:ce:customerTile && npm run copy:ce:customerTile",
     "copy:ce:customerTile": "cpr dist/customer-chart-tile/main.js src/assets/customer-chart-tile.bundle.js -o",
